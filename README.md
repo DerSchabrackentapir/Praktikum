@@ -1,26 +1,12 @@
 # Praktikum
 Mein Praktikumszeug
 
+### 1st install node_modules
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 2nd start server
 ```
 yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
 ```
