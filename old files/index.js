@@ -22,6 +22,12 @@ function initCalc(input) {
       Formelzeichen = '/';
       console.log(`The operant is: ${Formelzeichen}`)
     }
+    if (input.includes('^')) {
+      Formelzeichen = '^';
+      console.log(`The operant is: ${Formelzeichen}`)
+    }
+
+
 
     // 2. Formelzeichen als Seperator
 
@@ -60,6 +66,12 @@ function initCalc(input) {
         answer = div(numbers)
         console.log(`The result is: ${answer}`);
         break;
+
+      case '^':
+        answer = pow(numbers)
+        console.log(`The result is: ${answer}`);
+        break;
+
       default:
         answer = "No operator found!";
         break
@@ -123,4 +135,16 @@ function div(arr) {
   let b = arr[1];
 
   return a / b;
+}
+
+// Hoch
+function pow(arr) {
+  let a = arr[0];
+  let b = arr[1];
+  let answer = 1;
+
+  for (let i = 0; i < b; i++) {
+    answer *= a
+  }
+  return answer;
 }
