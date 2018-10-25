@@ -19,6 +19,7 @@
             <option value="-">-</option>
             <option value="*">*</option>
             <option value="/">/</option>
+            <option value="^">^</option>
           </select>
 
           <input type="text" id="calcInput3" onchange="writeIntoLeftTerm(document.getElementById('calcInput1').value, document.getElementById('calcInput2').value, document.getElementById('calcInput3').value)">
@@ -30,7 +31,7 @@
     <button id="calcButton" onclick="initCalc(document.getElementById('calcInput1').value + document.getElementById('calcInput2').value + document.getElementById('calcInput3').value)">Calculate</button>
 
     
-    <p id="rightTerm"></p>
+    <input type="text" id="rightTerm" disabled> 
 
 </body>
 

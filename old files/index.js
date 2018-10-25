@@ -27,8 +27,6 @@ function initCalc(input) {
       console.log(`The operant is: ${Formelzeichen}`)
     }
 
-
-
     // 2. Formelzeichen als Seperator
 
     const arrayOfStrings = input.split(Formelzeichen);
