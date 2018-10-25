@@ -7,16 +7,21 @@ function initCalc(input) {
   // 1. Formelzeichen ermitteln 
   if (input) {
 
-    let counter = 0;
-    for(let i = 0; i < input.length; i++) {
-      if(input[i] === '+' || input[i] === '-' || input[i] === '/' ||input[i] === '*' ||input[i] === '^') {
-        counter++;
-      }
-      if(counter > 1) {
-        alert ('You can only insert one operator!')
-        return;
-      }
-    }
+     let counter = 0;
+     for(let i = 0; i < input.length; i++) {
+       if(input[i] === '+' || input[i] === '-' || input[i] === '/' ||input[i] === '*' ||input[i] === '^') {
+         counter++;
+       }
+       if(counter > 1) {
+         alert ('You can only insert one operator!')
+         return;
+       }
+     }
+
+    let re = /^\s*\d+\s*[\+\-\*\/\^]{1}\s*\d+\s*$/;
+    console.log(re.test(input));
+    
+
 
     if (input.includes('+')) {
       Formelzeichen = '+';
