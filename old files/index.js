@@ -6,6 +6,18 @@ function initCalc(input) {
 
   // 1. Formelzeichen ermitteln 
   if (input) {
+
+    let counter = 0;
+    for(let i = 0; i < input.length; i++) {
+      if(input[i] === '+' || input[i] === '-' || input[i] === '/' ||input[i] === '*' ||input[i] === '^') {
+        counter++;
+      }
+      if(counter > 1) {
+        alert ('You can only insert one operator!')
+        return;
+      }
+    }
+
     if (input.includes('+')) {
       Formelzeichen = '+';
       console.log(`The operant is: ${Formelzeichen}`)
@@ -36,8 +48,7 @@ function initCalc(input) {
     const numbers = arrayOfStrings
       .map((s) => parseInt(s))
       .filter(n => !isNaN(n))
-
-
+    
     console.log('Numbers', numbers);
 
     // 4. Einsetzen in Formel
@@ -146,3 +157,7 @@ function pow(arr) {
   }
   return answer;
 }
+
+
+
+  
