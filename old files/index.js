@@ -1,3 +1,6 @@
+let termLeft;
+let termRight = "";
+let Formelzeichen;
 
 function initCalc(input) {
 
@@ -57,17 +60,40 @@ function initCalc(input) {
         answer = div(numbers)
         console.log(`The result is: ${answer}`);
         break;
+      default:
+        answer = "No operator found!";
+        break
     }
-    document.getElementById("result").innerHTML = answer;
+    document.getElementById("rightTerm").value = answer;
+    termRight = "";
 
   }
 
 };
 
+function writeIntoLeftTerm(number1, operant, number2) {
+  termLeft = "Term: " + number1 + " " + operant + " " + number2;
+  document.getElementById("term").innerHTML = termLeft;
+}
+
+function writeIntoRightTerm(char) {
+  console.log(char)
+
+  if (char === 'C') {
+    termRight = termRight.slice(0, -1)
+    document.getElementById("rightTerm").value = termRight;
+  } else {
+    if (char.length > 1) {
+      termRight = "";
+    }
+    termRight += char;
+    document.getElementById("rightTerm").value = termRight;
+  }
+}
+
 
 ///Calculator functions
 // Addition
-
 function sum(arr) {
   let a = arr[0];
   let b = arr[1];
@@ -76,7 +102,6 @@ function sum(arr) {
 }
 
 // Subtraktion  
-
 function sub(arr) {
   let a = arr[0];
   let b = arr[1];
@@ -85,7 +110,6 @@ function sub(arr) {
 }
 
 // Multiplikation
-
 function mult(arr) {
   let a = arr[0];
   let b = arr[1];
@@ -93,9 +117,7 @@ function mult(arr) {
   return a * b;
 }
 
-
 // Division
-
 function div(arr) {
   let a = arr[0];
   let b = arr[1];

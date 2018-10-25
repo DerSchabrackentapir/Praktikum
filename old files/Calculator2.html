@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style2.css">
+    <title>Calculator</title>
+
+</head>
+
+<body>
+    <script src="index.js"></script>
+    <h1>Calculator</h1>
+
+            
+                <div>
+
+                        <input type="text" id="rightTerm" onchange="writeIntoRightTerm(this.value)"> 
+                    
+                    <table>
+                        <tr>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">1</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">2</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">3</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">+</td>
+                        </tr>
+                        <tr>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">4</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">5</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">6</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">-</td>
+                        </tr>
+                        <tr>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">7</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">8</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">9</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">*</td>
+                        </tr>
+                        <tr>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">C</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">0 </td>
+                            <td class="numpad" onclick="initCalc(document.getElementById('rightTerm').value)">=</td>
+                            <td class="numpad" onclick="writeIntoRightTerm(this.innerHTML)">/</td>
+                        </tr>
+                    </table>
+
+
+                </div>
+    </table>
+</body>
+
+
+</html>

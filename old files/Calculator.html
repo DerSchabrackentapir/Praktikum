@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+   <link rel="stylesheet" href="style.css">
     <title>Calculator</title>
 
 </head>
@@ -11,12 +11,26 @@
     <script src="index.js"></script>
 
     <h1>Calculator</h1>
-    <p>
-        <input type="text" id="calcInput">
-    </p>
-    <button onclick="initCalc(document.getElementById('calcInput').value)">Calculate</button>
+    <div id="inputDiv">
+        <input type="text" id="calcInput1" onchange="writeIntoLeftTerm(document.getElementById('calcInput1').value, document.getElementById('calcInput2').value, document.getElementById('calcInput3').value)">
+
+        <select id="calcInput2" onchange="writeIntoLeftTerm(document.getElementById('calcInput1').value, document.getElementById('calcInput2').value, document.getElementById('calcInput3').value)">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+          </select>
+
+          <input type="text" id="calcInput3" onchange="writeIntoLeftTerm(document.getElementById('calcInput1').value, document.getElementById('calcInput2').value, document.getElementById('calcInput3').value)">
+
+        </div>
+        <div>
+            <span id="term">Term:</span>
+        </div>
+    <button id="calcButton" onclick="initCalc(document.getElementById('calcInput1').value + document.getElementById('calcInput2').value + document.getElementById('calcInput3').value)">Calculate</button>
+
     
-    <p id="result"></p>
+    <p id="rightTerm"></p>
 
 </body>
 

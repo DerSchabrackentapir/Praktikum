@@ -1,0 +1,26 @@
+#rightTerm{
+width: 100px;
+text-align: center;
+}
+.numpad{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.numpad:hover {
+    cursor: pointer;
+background-color: lightskyblue
+}
+
+#left {
+    position:absolute;
+    width:50%;
+}
+#right {
+    position: absolute;
+    width:50%;
+    left:50%
+}

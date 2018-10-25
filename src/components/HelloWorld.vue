@@ -1,16 +1,33 @@
 <template>
   <div class="hello">
+ 
+
+  <h1>Calculator</h1>
+  <div>
+    <input type="text" id="calcInput">
+  </div>
+  <button onclick="initCalc(document.getElementById('calcInput').value)">Calculate</button>
     
+  <div id="result"></div>
+
+
+
+
+
+
+
+
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
     msg: String
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

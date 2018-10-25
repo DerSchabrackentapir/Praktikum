@@ -1,0 +1,42 @@
+h1 {
+    text-align: center  
+}
+
+#calcInput1 {
+    position:absolute;
+    left:calc(50% - 180px);
+    text-align: center;
+    width:150px;
+}
+
+#calcInput2 {
+    position:absolute;
+    left: calc(50% - 19px);
+    text-align: center ;
+    width: 38px;
+}
+
+#calcInput3 {
+    position:absolute;
+    left:calc(50% + 25px);
+    text-align: center;
+    width: 150px  
+}
+
+#calcButton {
+    position:absolute;
+    left:calc(50% - 33px);
+    top: 110px;
+    width: 66px;
+
+}
+
+#result:hover {
+}
+#inputDiv {
+    width:100%;
+}
+
+.test {
+
+}
