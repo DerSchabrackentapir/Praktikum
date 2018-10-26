@@ -7,20 +7,12 @@ function initCalc(input) {
   // 1. Formelzeichen ermitteln 
   if (input) {
 
-     let counter = 0;
-     for(let i = 0; i < input.length; i++) {
-       if(input[i] === '+' || input[i] === '-' || input[i] === '/' ||input[i] === '*' ||input[i] === '^') {
-         counter++;
-       }
-       if(counter > 1) {
-         alert ('You can only insert one operator!')
-         return;
-       }
-     }
-
     let re = /^\s*\d+\s*[\+\-\*\/\^]{1}\s*\d+\s*$/;
     console.log(re.test(input));
-    
+    if (!re.test(input)) {
+      alert('Input an operation like this (x (operant) y)')
+      return;
+    }
 
 
     if (input.includes('+')) {
@@ -53,7 +45,7 @@ function initCalc(input) {
     const numbers = arrayOfStrings
       .map((s) => parseInt(s))
       .filter(n => !isNaN(n))
-    
+
     console.log('Numbers', numbers);
 
     // 4. Einsetzen in Formel
@@ -165,4 +157,3 @@ function pow(arr) {
 
 
 
-  
