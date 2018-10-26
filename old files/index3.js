@@ -7,7 +7,6 @@ function initCalc() {
 
   // 1. Formelzeichen ermitteln 
 
-
   let re = /^\s*\d+\s*[\+\-\*\/\^]{1}\s*\d+\s*$/;
   console.log(re.test(rechenTerm));
   if (!re.test(rechenTerm)) {
@@ -83,8 +82,9 @@ function initCalc() {
       answer = "No operator found!";
       break
   }
-  document.getElementById("rightTerm").value = answer;
-  rechenTerm = answer;
+  anzeigeTerm = answer + "";
+  document.getElementById("rightTerm").value = anzeigeTerm;
+  rechenTerm = answer + "";
 
 }
 
@@ -96,8 +96,8 @@ function writeIntoRightTerm(char) {
     console.log("isChar")
 
     let re2 = /^\s*\d+\s*[\+\-\*\/\^]{1}\s*\d+\s*$/;
-    if(re2.test(rechenTerm)) {
-     initCalc()
+    if (re2.test(rechenTerm)) {
+      initCalc()
     }
 
     rechenTerm += char;
@@ -108,6 +108,7 @@ function writeIntoRightTerm(char) {
   }
   if (char === 'C') {
     rechenTerm = rechenTerm.slice(0, -1)
+    anzeigeTerm = anzeigeTerm.slice(0, -1)
     document.getElementById("rightTerm").value = anzeigeTerm;
   } else {
     if (char.length > 1) {
