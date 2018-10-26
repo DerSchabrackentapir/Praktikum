@@ -7,12 +7,6 @@ function initCalc(input) {
   // 1. Formelzeichen ermitteln 
   if (input) {
 
-    let re = /^\s*\d+\s*[\+\-\*\/\^]{1}\s*\d+\s*$/;
-    console.log(re.test(input));
-    if (!re.test(input)) {
-      alert('Input an operation like this (x (operant) y)')
-      return;
-    }
 
 
     if (input.includes('+')) {
@@ -97,6 +91,11 @@ function writeIntoLeftTerm(number1, operant, number2) {
 function writeIntoRightTerm(char) {
   console.log(char)
 
+  let regexAnfang = /^\d+$/;
+  let regexOperand = /^\d+[\+\-\*\/\^]{1}$/;
+  let regexEnde = /^\s*\d+\s*[\+\-\*\/\^]{1}\s*\d+\s*$/;
+  
+  
   if (char === 'C') {
     termRight = termRight.slice(0, -1)
     document.getElementById("rightTerm").value = termRight;
@@ -106,6 +105,14 @@ function writeIntoRightTerm(char) {
     }
     termRight += char;
     document.getElementById("rightTerm").value = termRight;
+  }
+  console.log(regexAnfang.test(termRight));
+
+  if (!regexAnfang.test(termRight)   &&  !regexOperand.test(termRight)  &&   !regexEnde.test(termRight)) {
+    alert('Input an operation like this (x (operator) y)')
+    termRight = termRight.slice(0, -1)
+    document.getElementById("rightTerm").value = termRight;
+    return;
   }
 }
 
