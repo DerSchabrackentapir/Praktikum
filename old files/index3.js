@@ -3,93 +3,90 @@ let Formelzeichen;
 let anzeigeTerm = ""
 
 
-function initCalc(input) {
+function initCalc() {
 
   // 1. Formelzeichen ermitteln 
-  if (input) {
-
-    let re = /^\s*\d+\s*[\+\-\*\/\^]{1}\s*\d+\s*$/;
-    console.log(re.test(input));
-    if (!re.test(input)) {
-      alert('Input an operation like this (x (operant) y)')
-      return;
-    }
 
 
-    if (input.includes('+')) {
-      Formelzeichen = '+';
-      console.log(`The operant is: ${Formelzeichen}`)
-    }
-    if (input.includes('-')) {
-      Formelzeichen = '-';
-      console.log(`The operant is: ${Formelzeichen}`)
-    }
-    if (input.includes('*')) {
-      Formelzeichen = '*';
-      console.log(`The operant is: ${Formelzeichen}`)
-    }
-    if (input.includes('/')) {
-      Formelzeichen = '/';
-      console.log(`The operant is: ${Formelzeichen}`)
-    }
-    if (input.includes('^')) {
-      Formelzeichen = '^';
-      console.log(`The operant is: ${Formelzeichen}`)
-    }
-
-    // 2. Formelzeichen als Seperator
-
-    const arrayOfStrings = input.split(Formelzeichen);
-
-    // 3. Konvertierung in Nummern
-
-    const numbers = arrayOfStrings
-      .map((s) => parseInt(s))
-      .filter(n => !isNaN(n))
-
-    console.log('Numbers', numbers);
-
-    // 4. Einsetzen in Formel
-
-    let answer
-
-    switch (Formelzeichen) {
-      case '-':
-        answer = sub(numbers);
-        console.log(`The result is: ${answer}`)
-        break;
-
-      case '+':
-        answer = sum(numbers)
-        console.log(`The result is: ${answer}`);
-        break;
-
-      case '*':
-        answer = mult(numbers)
-        console.log(`The result is: ${answer}`);
-        break;
-
-      case '/':
-        answer = div(numbers)
-        console.log(`The result is: ${answer}`);
-        break;
-
-      case '^':
-        answer = pow(numbers)
-        console.log(`The result is: ${answer}`);
-        break;
-
-      default:
-        answer = "No operator found!";
-        break
-    }
-    document.getElementById("rightTerm").value = answer;
-    rechenTerm = "";
-
+  let re = /^\s*\d+\s*[\+\-\*\/\^]{1}\s*\d+\s*$/;
+  console.log(re.test(rechenTerm));
+  if (!re.test(rechenTerm)) {
+    alert('Input an operation like this (x (operant) y)')
+    return;
   }
 
-};
 
+  if (rechenTerm.includes('+')) {
+    Formelzeichen = '+';
+    console.log(`The operant is: ${Formelzeichen}`)
+  }
+  if (rechenTerm.includes('-')) {
+    Formelzeichen = '-';
+    console.log(`The operant is: ${Formelzeichen}`)
+  }
+  if (rechenTerm.includes('*')) {
+    Formelzeichen = '*';
+    console.log(`The operant is: ${Formelzeichen}`)
+  }
+  if (rechenTerm.includes('/')) {
+    Formelzeichen = '/';
+    console.log(`The operant is: ${Formelzeichen}`)
+  }
+  if (rechenTerm.includes('^')) {
+    Formelzeichen = '^';
+    console.log(`The operant is: ${Formelzeichen}`)
+  }
+
+  // 2. Formelzeichen als Seperator
+
+  const arrayOfStrings = rechenTerm.split(Formelzeichen);
+
+  // 3. Konvertierung in Nummern
+
+  const numbers = arrayOfStrings
+    .map((s) => parseInt(s))
+    .filter(n => !isNaN(n))
+
+  console.log('Numbers', numbers);
+
+  // 4. Einsetzen in Formel
+
+  let answer
+
+  switch (Formelzeichen) {
+    case '-':
+      answer = sub(numbers);
+      console.log(`The result is: ${answer}`)
+      break;
+
+    case '+':
+      answer = sum(numbers)
+      console.log(`The result is: ${answer}`);
+      break;
+
+    case '*':
+      answer = mult(numbers)
+      console.log(`The result is: ${answer}`);
+      break;
+
+    case '/':
+      answer = div(numbers)
+      console.log(`The result is: ${answer}`);
+      break;
+
+    case '^':
+      answer = pow(numbers)
+      console.log(`The result is: ${answer}`);
+      break;
+
+    default:
+      answer = "No operator found!";
+      break
+  }
+  document.getElementById("rightTerm").value = answer;
+  rechenTerm = answer;
+
+}
 
 function writeIntoRightTerm(char) {
   console.log(char)
@@ -97,8 +94,16 @@ function writeIntoRightTerm(char) {
   let re = /[\+\-\*\/\^]{1}/
   if (re.test(char)) {
     console.log("isChar")
+
+    let re2 = /^\s*\d+\s*[\+\-\*\/\^]{1}\s*\d+\s*$/;
+    if(re2.test(rechenTerm)) {
+     initCalc()
+    }
+
     rechenTerm += char;
-    document.getElementById("rightTerm").value = ""
+    anzeigeTerm = ""
+    document.getElementById("rightTerm").value = anzeigeTerm;
+
     return;
   }
   if (char === 'C') {
@@ -109,6 +114,7 @@ function writeIntoRightTerm(char) {
       rechenTerm = "";
     }
     rechenTerm += char;
+    anzeigeTerm += char
     document.getElementById("rightTerm").value = anzeigeTerm;
   }
 }
